@@ -1,24 +1,70 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, { useState } from "react";
+import "./App.css";
+
+function TodoItem({ text }: { text: string }) {
+  return (
+    <div className="item">
+      <span className="opener"></span>
+      <h4>{text}</h4>
+    </div>
+  );
+}
 
 function App() {
+  const [value, setValue] = useState("");
+  const [todos, setTodos] = useState<Array<React.ReactElement>>([]);
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
+      <div id="todo-container">
+        <header>
+          <h1 id="todo-header">todo</h1>
+        </header>
+        <form
+          onSubmit={(e) => {
+            e.preventDefault();
+          }}
         >
-          Learn React
-        </a>
-      </header>
+          <div className="input-field">
+            <label htmlFor="todo-item">
+              <input
+                value={value}
+                onChange={(e) => {
+                  setValue(e.target.value);
+                }}
+                type="text"
+                name="todo-item"
+                placeholder="Type item name"
+              />
+            </label>
+          </div>
+        </form>
+
+        <div id="todo-item-container">{todos}</div>
+
+        <footer id="todo-footer">
+          <div className="buttons">
+            <button
+              id="todo-btn"
+              onClick={(e) => {
+                if (value === "") return;
+                setTodos([
+                  ...todos,
+                  <TodoItem key={todos.length} text={value} />,
+                ]);
+
+                setValue("");
+              }}
+              className="submit"
+            >
+              submit
+            </button>
+            <button id="todo-btn" className="cancel">
+              cancel
+            </button>
+          </div>
+        </footer>
+      </div>
     </div>
   );
 }

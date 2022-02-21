@@ -1,38 +1,91 @@
 .App {
-  text-align: center;
-}
-
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  width: 100%;
+  height: 100vh;
 }
 
-.App-link {
-  color: #61dafb;
+.App #todo-container {
+  width: 600px;
+  height: 85%;
+  background-color: red;
+  position: relative;
+  --item-padding: 20px;
+  --box-height-size: 4.5rem;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.App #todo-container header {
+  background-color: tomato;
+  padding: 0 var(--item-padding);
+  height: var(--box-height-size);
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
 }
+
+.App #todo-container header h1 {
+  margin: 0;
+}
+
+.App #todo-container .input-field {
+  padding: 0 var(--item-padding);
+  height: var(--box-height-size);
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.App #todo-container .input-field label {
+  width: 100%;
+}
+
+.App #todo-container .input-field label input {
+  width: 100%;
+  height: 30px;
+  outline: none;
+}
+
+.App #todo-container #todo-item-container {
+  background-color: aliceblue;
+  height: 60%;
+  overflow-y: scroll;
+}
+
+.App #todo-container #todo-item-container .item {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.App #todo-container #todo-item-container .item span {
+  width: 0;
+  margin-right: 10px;
+  background-color: #2ca82c;
+  -webkit-transition: width ease-in 250ms;
+  transition: width ease-in 250ms;
+}
+
+.App #todo-container #todo-item-container .item:hover span {
+  display: block;
+  -webkit-transform: scaleX(1);
+          transform: scaleX(1);
+  width: 12.5%;
+}
+
+.App #todo-container #todo-footer {
+  width: 100%;
+}
+/*# sourceMappingURL=App.css.map */

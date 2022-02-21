@@ -1,14 +1,6 @@
 import React, { useState } from "react";
 import "./App.css";
-
-function TodoItem({ text }: { text: string }) {
-  return (
-    <div className="item">
-      <span className="opener"></span>
-      <h4>{text}</h4>
-    </div>
-  );
-}
+import TodoItem from "./TodoItem/TodoItem";
 
 function App() {
   const [value, setValue] = useState("");
@@ -46,7 +38,7 @@ function App() {
           <div className="buttons">
             <button
               id="todo-btn"
-              onClick={(e) => {
+              onClick={() => {
                 if (value === "") return;
                 setTodos([
                   ...todos,

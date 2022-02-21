@@ -51,7 +51,11 @@ function App() {
             >
               submit
             </button>
-            <button id="todo-btn" className="cancel">
+            <button
+              id="todo-btn"
+              className="cancel"
+              onClick={() => setValue("")}
+            >
               cancel
             </button>
           </div>
